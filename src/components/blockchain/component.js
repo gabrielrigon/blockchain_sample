@@ -4,7 +4,8 @@ const Block = require('../../models/Block')
 module.exports = class {
   onCreate() {
     this.state = {
-      blockchain: new Blockchain()
+      blockchain: new Blockchain(),
+      validity: true
     }
   }
 
@@ -15,5 +16,9 @@ module.exports = class {
     this.state.blockchain.addBlock(newBlock)
 
     this.setStateDirty('blockchain')
+  }
+
+  updateValidity() {
+    this.state.validity = this.state.blockchain.isChainValid()
   }
 }

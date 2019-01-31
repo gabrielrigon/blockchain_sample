@@ -1,7 +1,10 @@
+<chain-validity valid=state.validity />
+
 <div class='container'>
   <div class='section'>
+
     <for(item in state.blockchain.chain)>
-      <block key='blocks[]' block=item difficulty=state.blockchain.difficulty />
+      <block key='blocks[]' block=item difficulty=state.blockchain.difficulty on-blockUpdated('updateValidity') />
     </for>
 
     <add-block-button on-addBlockClicked('addBlock') />

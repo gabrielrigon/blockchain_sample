@@ -1,3 +1,7 @@
 .field {
   width: 100%;
 }
+
+.panel-block {
+  overflow-x: hidden;
+}
