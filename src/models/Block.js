@@ -17,7 +17,15 @@ class Block {
   }
 
   mineBlock(difficulty) {
-    while (this.hash.substring(0, difficulty) !== Array(difficulty + 1).join('0')) {
+    let valid = () => this.hash.substring(0, difficulty) === Array(difficulty + 1).join('0')
+
+    if (valid()) {
+      return
+    }
+
+    this.nounce = 0
+
+    while (!valid()) {
       this.nounce++
       this.hash = this.calculateHash()
     }

@@ -8,13 +8,21 @@ module.exports = class {
 
   handleDataInputKeyUp(event, el) {
     this.state.block.data = el.value
-    this.state.block.hash = this.state.block.calculateHash()
-    
-    this.forceUpdate()
+    this.calculateHashAndUpdate()
+  }
+
+  handlePreviousHashInputKeyUp(event, el) {
+    this.state.block.previousHash = el.value
+    this.calculateHashAndUpdate()
   }
 
   onMineBlockClicked() {
     this.state.block.mineBlock(this.state.difficulty)
+    this.forceUpdate()
+  }
+
+  calculateHashAndUpdate() {
+    this.state.block.hash = this.state.block.calculateHash()
     this.forceUpdate()
   }
 }
