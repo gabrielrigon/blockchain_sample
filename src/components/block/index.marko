@@ -1,0 +1,28 @@
+<div class='panel'>
+  <div class='panel-heading'># ${state.block.index}</div>
+
+  <div class='panel-block'>
+    <p class='is-size-7'>Hash anterior: <br><strong>${state.block.previousHash}</strong></p>
+  </div>
+
+  <div class='panel-block'>
+    <div class='field'>
+      <label class='label is-size-7'>Dados:</label>
+      <div class='control'>
+        <textarea onKeyUp('handleDataInputKeyUp') value=state.block.data class="textarea"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class='panel-block'>
+    <p class='is-size-7'>Hash atual: <br><strong>${state.block.hash}</strong></p>
+  </div>
+
+  <div class='panel-block'>
+    <p class='is-size-7'>Nounce: <br><strong>${state.block.nounce}</strong></p>
+  </div>
+
+  <div class='panel-block'>
+    <mine-button on-mineBlockClicked('onMineBlockClicked') />
+  </div>
+</div>

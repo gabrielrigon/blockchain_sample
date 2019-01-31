@@ -1,0 +1,9 @@
+<div class='container'>
+  <div class='section'>
+    <for(item in state.blockchain.chain)>
+      <block key='blocks[]' block=item difficulty=state.blockchain.difficulty />
+    </for>
+
+    <add-block-button on-addBlockClicked('addBlock') />
+  </div>
+</div>

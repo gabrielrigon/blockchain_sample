@@ -18,3 +18,4 @@ coverage
 
 # NPM
 node_modules
+yarn.lock
